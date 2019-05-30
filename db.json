@@ -1,6 +1,16 @@
 {
   "wishList": [
     {
+      "company": "happyLemon",
+      "position": "boba sale",
+      "description": "",
+      "url": "",
+      "color": "rgb(172, 72, 44)",
+      "id": 1
+    }
+  ],
+  "applied": [
+    {
       "company": "nike",
       "position": "shoes",
       "description": "",
@@ -9,12 +19,8 @@
       "id": 1
     }
   ],
-  "applied": [],
   "codeChallenge": [],
-  "phoneScreen": [],
-  "onSite": [],
-  "offer": [],
-  "rejected": [
+  "phoneScreen": [
     {
       "company": "google",
       "position": "CEO",
@@ -22,5 +28,8 @@
       "color": "rgb(206, 219, 212)",
       "id": 2
     }
-  ]
+  ],
+  "onSite": [],
+  "offer": [],
+  "rejected": []
 }

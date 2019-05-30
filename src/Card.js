@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
-import { relative } from 'path';
+import JobDetail from './JobDetail';
 
 const grid = 8;
 
@@ -27,37 +27,55 @@ const StyledX = styled.div`
 `;
 
 function Card(props) {
-  function handleClick(evt){
+  const [showDetail, setShowDetail] = useState(false);
+
+  function handleClick(evt) {
     if(evt.target.innerHTML === ' x '){
-      console.log(evt.target.getAttribute('id'))
       props.triggerDelete(evt.target.getAttribute('id'));
+    } else {
+      setShowDetail(true);
     }
   }
 
+  function closeDetail() {
+    setShowDetail(false);
+  }
+
   const {item, index} = props;
+  const {id, company, position, description, url} = item;
   return(
-    <Draggable
-    key={item.id}
-    draggableId={item.id}
-    index={index}>
-      {(provided, snapshot) => (
-        <div
-        id={item.id}
-        onClick={handleClick}
-        ref={provided.innerRef}
-        {...provided.draggableProps}
-        {...provided.dragHandleProps}
-        style={getItemStyle(
-          snapshot.isDragging,
-          provided.draggableProps.style,
-          item.color
-          )}>
-            <StyledX id={item.id}> x </StyledX>
-            <div><b>{item.company}</b></div>
-            <div>{item.position}</div>
-        </div>
-      )}
-    </Draggable>
+    <>
+      {showDetail && <JobDetail
+                        onClick={closeDetail}
+                        triggerClose={closeDetail}
+                        company={company}
+                        position={position}
+                        description={description}
+                        url={url}
+                      />}
+      <Draggable
+      key={id}
+      draggableId={id}
+      index={index}>
+        {(provided, snapshot) => (
+          <div
+          onClick={handleClick}
+          id={id}
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          style={getItemStyle(
+            snapshot.isDragging,
+            provided.draggableProps.style,
+            item.color
+            )}>
+              <StyledX id={id}> x </StyledX>
+              <div><b>{company}</b></div>
+              <div>{position}</div>
+          </div>
+        )}
+      </Draggable>
+    </>
   );
 }
 
