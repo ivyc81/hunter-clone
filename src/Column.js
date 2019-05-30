@@ -32,7 +32,12 @@ const getStyle = isDraggingOver => ({
 });
 
 function Column(props) {
-  const {droppableId, items, title} = props;
+  const {droppableId, items, title, triggerDelete} = props;
+
+  function deleteWithResource(index){
+    triggerDelete(title, index);
+  }
+
   return (
     <StyledDiv>
       <div>{title}</div>
@@ -42,7 +47,7 @@ function Column(props) {
         <StyledDrop
         ref={provided.innerRef}>
           {items.map((item, index) => (
-            <Card key={item.id} item={item} index={index} />
+            <Card triggerDelete={deleteWithResource} key={item.id} item={item} index={index} />
             ))}
           <div style={getStyle(snapshot.isDraggingOver)}></div>
           {provided.placeholder}

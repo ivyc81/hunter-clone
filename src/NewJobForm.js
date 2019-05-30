@@ -18,14 +18,17 @@ const StyledTextArea = styled.textarea`
   border: 1px solid lightgrey;
 `;
 
+const initialState = {
+  company: '',
+  position: '',
+  description: '',
+  url: '',
+}
+
 class NewJobForm extends Component{
   constructor(props){
     super(props);
-    this.state={
-      company: '',
-      position: '',
-      description: '',
-    }
+    this.state = initialState;
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -37,17 +40,20 @@ class NewJobForm extends Component{
   handleSubmit(evt){
     evt.preventDefault();
     this.props.triggerAddJob('', this.state);
+    this.setState(initialState);
   }
 
   render(){
     return(
       <StyledForm onSubmit={this.handleSubmit}>
         <label htmlFor="company">Company:</label><br/>
-        <StyledInput onChange={this.handleChange} value={this.state.company} name="company" /><br/>
+        <StyledInput id="company" onChange={this.handleChange} value={this.state.company} name="company" /><br/>
         <label htmlFor="position">Position:</label><br/>
-        <StyledInput onChange={this.handleChange} value={this.state.position} name="position" /><br/>
+        <StyledInput id="position" onChange={this.handleChange} value={this.state.position} name="position" /><br/>
+        <label htmlFor="url">Url:</label><br/>
+        <StyledInput id="url" onChange={this.handleChange} value={this.state.url} name="url" /><br/>
         <label htmlFor="description">Description:</label><br/>
-        <StyledTextArea onChange={this.handleChange} value={this.state.description} name="description" /><br/>
+        <StyledTextArea id="description" onChange={this.handleChange} value={this.state.description} name="description" /><br/>
         <button>Add</button>
       </StyledForm>
     )}

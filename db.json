@@ -1,16 +1,12 @@
 {
   "wishList": [
     {
-      "id": 1,
-      "company": "apple",
-      "position": "clown",
-      "color": "#88ede7"
-    },
-    {
       "company": "nike",
       "position": "shoes",
+      "description": "",
+      "url": "",
       "color": "rgb(211, 105, 107)",
-      "id": 2
+      "id": 1
     }
   ],
   "applied": [],
@@ -22,14 +18,9 @@
     {
       "company": "google",
       "position": "CEO",
+      "description": "will you hiring me to be your CEO??",
       "color": "rgb(206, 219, 212)",
-      "id": 3
-    },
-    {
-      "company": "nike",
-      "position": "CEO",
-      "color": "rgb(211, 105, 107)",
-      "id": 4
+      "id": 2
     }
   ]
 }

@@ -52,7 +52,6 @@ const chooseColor = (companyName) =>{
     }
   }
 
-  console.log(R, G, B)
   return `rgb(${R % 255}, ${G % 255}, ${B % 255})`;
 }
 
@@ -69,6 +68,7 @@ class App extends Component {
       rejected: [],
     };
     this.addItem = this.addItem.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
   async componentDidMount(){
@@ -87,6 +87,16 @@ class App extends Component {
     data.color = color;
     const result = await apiHelper.addResource('wishList', data);
     this.setState({wishList: [...this.state.wishList, result] });
+  }
+
+  async deleteItem(resource, index){
+    await apiHelper.deleteResource(resource, index);
+    const {[resource]: update} = this.state;
+    console.log('in', index)
+    const newResource = update.filter(ele => ele.id !== +index);
+    console.log(newResource)
+
+    this.setState({[resource]: newResource});
   }
 
   getList = id => this.state[id];
@@ -131,7 +141,13 @@ class App extends Component {
 
     const arr = [];
     for (let key in this.state) {
-      arr.push(<Column key={key} title={key} droppableId={key} items={this.state[key]} />);
+      arr.push(<Column
+                  triggerDelete={this.deleteItem}
+                  key={key}
+                  title={key}
+                  droppableId={key}
+                  items={this.state[key]}
+                />);
     }
 
     return arr;
