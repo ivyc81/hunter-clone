@@ -7,6 +7,14 @@
       "url": "",
       "color": "rgb(172, 72, 44)",
       "id": 1
+    },
+    {
+      "company": "yahoo",
+      "position": "office pet",
+      "description": "",
+      "url": "",
+      "id": "498c65f5-0879-41c2-a8bc-466c003615ca",
+      "color": "rgb(232, 208, 104)"
     }
   ],
   "applied": [
@@ -15,20 +23,20 @@
       "position": "shoes",
       "description": "",
       "url": "",
-      "color": "rgb(211, 105, 107)",
-      "id": 1
+      "id": "32c0ed78-557e-49af-b648-2fbc3b83a7a1",
+      "color": "rgb(211, 105, 107)"
+    },
+    {
+      "company": "yelp",
+      "position": "clown",
+      "description": "",
+      "url": "",
+      "id": "84e32aca-afeb-4b4c-ae13-7bb49b0d31f3",
+      "color": "rgb(233, 101, 108)"
     }
   ],
   "codeChallenge": [],
-  "phoneScreen": [
-    {
-      "company": "google",
-      "position": "CEO",
-      "description": "will you hiring me to be your CEO??",
-      "color": "rgb(206, 219, 212)",
-      "id": 2
-    }
-  ],
+  "phoneScreen": [],
   "onSite": [],
   "offer": [],
   "rejected": []

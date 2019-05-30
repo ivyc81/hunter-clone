@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import uuid from 'uuid/v4';
 import { DragDropContext } from 'react-beautiful-dnd';
+import styled from 'styled-components';
 import './App.css';
 import apiHelper from './api';
 import Column from './Column';
@@ -84,6 +86,7 @@ class App extends Component {
   async addItem(resource, data){
     const companyName = data.company;
     const color = chooseColor(companyName);
+    data.id = uuid();
     data.color = color;
     const result = await apiHelper.addResource('wishList', data);
     this.setState({wishList: [...this.state.wishList, result] });
@@ -92,9 +95,7 @@ class App extends Component {
   async deleteItem(resource, index){
     await apiHelper.deleteResource(resource, index);
     const {[resource]: update} = this.state;
-    console.log('in', index)
     const newResource = update.filter(ele => ele.id !== +index);
-    console.log(newResource)
 
     this.setState({[resource]: newResource});
   }

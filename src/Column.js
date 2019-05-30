@@ -7,7 +7,7 @@ const grid = 8;
 
 const StyledDiv = styled.div`
   border: 1px solid grey;
-  width: 12.5vw;
+  width: 152px;
   padding: 10px 0;
 `;
 
@@ -26,9 +26,11 @@ const getListStyle = isDraggingOver => ({
 });
 
 const getStyle = isDraggingOver => ({
-  display: isDraggingOver? 'block' : 'none',
+  visibility: isDraggingOver? 'visible' : 'hidden',
   padding: grid * 2.5,
   backgroundColor: 'lightgrey',
+  width: 132,
+  boxSizing: 'border-box',
 });
 
 function Column(props) {

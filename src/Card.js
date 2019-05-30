@@ -12,9 +12,11 @@ const getItemStyle = (isDragging, draggableStyle, color) => ({
   margin: `0 0 ${grid}px 0`,
   borderRadius: 2,
   position: 'relative',
+  width: 132,
+  boxSizing: 'border-box',
 
   // change background colour if dragging
-  background: isDragging ? 'lightgreen' : `${color}`,
+  background: isDragging ? 'lightgrey' : `${color}`,
 
   // styles we need to apply on draggables
   ...draggableStyle
@@ -23,7 +25,7 @@ const getItemStyle = (isDragging, draggableStyle, color) => ({
 const StyledX = styled.div`
   position: absolute;
   top: 2px;
-  right: 4px;
+  right: 8px;
 `;
 
 function Card(props) {
