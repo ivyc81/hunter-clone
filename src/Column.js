@@ -6,8 +6,14 @@ import Card from './Card';
 const grid = 8;
 
 const StyledDiv = styled.div`
-  border: 1px solid red;
-  width: 250px;
+  border: 1px solid grey;
+  width: 12.5vw;
+  padding: 10px 0;
+`;
+
+const StyledDrop = styled.div`
+  box-sizing: border-box;
+  width: 100%;
   padding: ${grid}px;
   min-height: 100vh;
 `;
@@ -28,21 +34,22 @@ const getStyle = isDraggingOver => ({
 function Column(props) {
   const {droppableId, items, title} = props;
   return (
-    <div>
-      {title}
+    <StyledDiv>
+      <div>{title}</div>
+      <div><small>{items.length} jobs</small></div>
       <Droppable droppableId={droppableId}>
       {(provided, snapshot) => (
-        <StyledDiv
+        <StyledDrop
         ref={provided.innerRef}>
           {items.map((item, index) => (
             <Card key={item.id} item={item} index={index} />
             ))}
           <div style={getStyle(snapshot.isDraggingOver)}></div>
           {provided.placeholder}
-        </StyledDiv>
+        </StyledDrop>
       )}
     </Droppable>
-  </div>
+  </StyledDiv>
   );
 }
 
