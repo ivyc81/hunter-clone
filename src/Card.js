@@ -8,7 +8,7 @@ const grid = 8;
 const getItemStyle = (isDragging, draggableStyle, color) => ({
   // some basic styles to make the items look a bit nicer
   userSelect: 'none',
-  padding: grid * 2,
+  padding: `${grid}px ${grid * 2}px`,
   margin: `0 0 ${grid}px 0`,
   borderRadius: 2,
   position: 'relative',
