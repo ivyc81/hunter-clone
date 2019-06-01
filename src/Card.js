@@ -44,7 +44,18 @@ function Card(props) {
   }
 
   const {item, index} = props;
-  const {id, company, position, description, url} = item;
+  const {id,
+         company,
+         position,
+         description,
+         url,
+         location,
+         appliedAt,
+         phoneScreenAt,
+         codeChallengeAt,
+         onSiteAt,
+         offerAt,
+         rejectedAt} = item;
   return(
     <>
       {showDetail && <JobDetail
@@ -54,6 +65,13 @@ function Card(props) {
                         position={position}
                         description={description}
                         url={url}
+                        location={location}
+                        appliedAt={appliedAt}
+                        phoneScreen={phoneScreenAt}
+                        codeChallengeAt={codeChallengeAt}
+                        onSiteAt={onSiteAt}
+                        offerAt={offerAt}
+                        rejectedAt={rejectedAt}
                       />}
       <Draggable
       key={id}

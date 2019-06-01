@@ -1,42 +1,29 @@
 {
   "wishList": [
     {
-      "company": "happyLemon",
-      "position": "boba sale",
-      "description": "",
-      "url": "",
-      "color": "rgb(172, 72, 44)",
-      "id": 1
-    },
-    {
-      "company": "yahoo",
-      "position": "office pet",
-      "description": "",
-      "url": "",
-      "id": "498c65f5-0879-41c2-a8bc-466c003615ca",
-      "color": "rgb(232, 208, 104)"
-    }
-  ],
-  "applied": [
-    {
-      "company": "nike",
+      "company": "yelp",
       "position": "shoes",
       "description": "",
       "url": "",
-      "id": "32c0ed78-557e-49af-b648-2fbc3b83a7a1",
-      "color": "rgb(211, 105, 107)"
-    },
-    {
-      "company": "yelp",
-      "position": "clown",
-      "description": "",
-      "url": "",
-      "id": "84e32aca-afeb-4b4c-ae13-7bb49b0d31f3",
+      "location": "",
+      "id": "8ef46505-8afc-46d0-b203-365cff9f2c3d",
       "color": "rgb(233, 101, 108)"
     }
   ],
+  "applied": [],
   "codeChallenge": [],
-  "phoneScreen": [],
+  "phoneScreen": [
+    {
+      "company": "google",
+      "position": "boba",
+      "description": "",
+      "url": "",
+      "location": "",
+      "id": "b1ef2c96-2498-47eb-aac1-9a2431e67cfc",
+      "color": "rgb(206, 219, 212)",
+      "phoneScreenAt": "Fri May 31 2019"
+    }
+  ],
   "onSite": [],
   "offer": [],
   "rejected": []

@@ -23,6 +23,7 @@ const initialState = {
   position: '',
   description: '',
   url: '',
+  location: '',
 }
 
 class NewJobForm extends Component{
@@ -52,6 +53,8 @@ class NewJobForm extends Component{
         <StyledInput id="position" onChange={this.handleChange} value={this.state.position} name="position" /><br/>
         <label htmlFor="url">Url:</label><br/>
         <StyledInput id="url" onChange={this.handleChange} value={this.state.url} name="url" /><br/>
+        <label htmlFor="location">Location:</label><br/>
+        <StyledInput id="location" onChange={this.handleChange} value={this.state.location} name="location" /><br/>
         <label htmlFor="description">Description:</label><br/>
         <StyledTextArea id="description" onChange={this.handleChange} value={this.state.description} name="description" /><br/>
         <button>Add</button>

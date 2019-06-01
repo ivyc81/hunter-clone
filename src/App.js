@@ -17,7 +17,9 @@ const reorder = (list, startIndex, endIndex) => {
 };
 
 const updateDb = async(source, destination, data) => {
+  const now = new Date();
   await apiHelper.deleteResource(source.droppableId, data.id);
+  data[`${destination.droppableId}At`] = now.toDateString();
   await apiHelper.addResource(destination.droppableId, data);
 }
 
@@ -95,7 +97,7 @@ class App extends Component {
   async deleteItem(resource, index){
     await apiHelper.deleteResource(resource, index);
     const {[resource]: update} = this.state;
-    const newResource = update.filter(ele => ele.id !== +index);
+    const newResource = update.filter(ele => ele.id !== index);
 
     this.setState({[resource]: newResource});
   }

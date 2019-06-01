@@ -16,9 +16,11 @@ const StyledModal = styled.div`
 `;
 
 const StyledModalContent = styled.div`
+  display: flex;
+  flex-wrap: wrap;
   position: relative;
   width: 500px;
-  margin: auto;
+  margin: 30px auto;
   background-color: #fefefe;
   border: 1px solid #888;
   border-radius: 4px;
@@ -31,6 +33,15 @@ const StyledX = styled.div`
   right: 8px;
 `;
 
+const Col = styled.div`
+  flex: 1 50%;
+  height: 0%;
+`;
+
+const BotCol = styled.div`
+  flex: 1 100%;
+`;
+
 const Row = styled.div`
   width: 100%;
   display: flex;
@@ -39,16 +50,26 @@ const Row = styled.div`
 `;
 
 const Title = styled.div`
-  width: 20%;
+  width: 40%;
 `;
 
 const Content = styled.div`
-  width: 70%;
+  width: 60%;
 `;
 
 function JobDetail(props) {
-  const {triggerClose, company, position, description, url} = props;
-
+  const {triggerClose,
+         company,
+         position,
+         description,
+         url,
+         location,
+         appliedAt,
+         phoneScreenAt,
+         codeChallengeAt,
+         onSiteAt,
+         offerAt,
+         rejectedAt} = props;
   function handleClick(evt){
     triggerClose();
   }
@@ -56,20 +77,54 @@ function JobDetail(props) {
   return(
     <StyledModal>
       <StyledModalContent>
-        <Row>
-          <Title>Company:</Title>
-          <Content>{company}</Content>
-        </Row>
-        <Row>
-        <Title>Position:</Title>
-        <Content>{position}</Content>
-        </Row>
-        <Row>
-          <Title>Post Url:</Title>
-          <Content>{url}</Content>
-        </Row>
-        <Row>Description:</Row>
-        <Row>{description}</Row>
+        <Col>
+          <Row>
+            <Title>Company:</Title>
+            <Content>{company}</Content>
+          </Row>
+          <Row>
+          <Title>Position:</Title>
+          <Content>{position}</Content>
+          </Row>
+          <Row>
+            <Title>Post Url:</Title>
+            <Content>{url}</Content>
+          </Row>
+          <Row>
+            <Title>Location:</Title>
+            <Content>{location}</Content>
+          </Row>
+        </Col>
+        <Col>
+          <Row>
+            <Title>Applied:</Title>
+            <Content>{appliedAt}</Content>
+          </Row>
+          <Row>
+          <Title>Phone Screen:</Title>
+          <Content>{phoneScreenAt}</Content>
+          </Row>
+          <Row>
+            <Title>Code Challenge:</Title>
+            <Content>{codeChallengeAt}</Content>
+          </Row>
+          <Row>
+            <Title>On Site:</Title>
+            <Content>{onSiteAt}</Content>
+          </Row>
+          <Row>
+            <Title>Offer:</Title>
+            <Content>{offerAt}</Content>
+          </Row>
+          <Row>
+            <Title>Rejected:</Title>
+            <Content>{rejectedAt}</Content>
+          </Row>
+        </Col>
+        <BotCol>
+          <Row>Description:</Row>
+          <Row>{description}</Row>
+        </BotCol>
         <StyledX onClick={handleClick}> x </StyledX>
       </StyledModalContent>
     </StyledModal>
