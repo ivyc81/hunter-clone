@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import JobDetail from './JobDetail';
+import { whileStatement } from '@babel/types';
 
 const grid = 8;
 
@@ -13,7 +14,7 @@ const getItemStyle = (isDragging, draggableStyle, color) => ({
   borderRadius: 2,
   position: 'relative',
   width: 132,
-  boxSizing: 'border-box',
+  color: 'white',
 
   // change background colour if dragging
   background: isDragging ? 'lightgrey' : `${color}`,
@@ -26,6 +27,13 @@ const StyledX = styled.div`
   position: absolute;
   top: 2px;
   right: 8px;
+`;
+
+const StyledPosition = styled.div`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.7rem;
 `;
 
 function Card(props) {
@@ -44,7 +52,8 @@ function Card(props) {
   }
 
   const {item, index} = props;
-  const {id,
+  const {color,
+         id,
          company,
          position,
          description,
@@ -87,11 +96,11 @@ function Card(props) {
           style={getItemStyle(
             snapshot.isDragging,
             provided.draggableProps.style,
-            item.color
+            color
             )}>
               <StyledX id={id}> x </StyledX>
-              <div><b>{company}</b></div>
-              <div>{position}</div>
+              <div>{company}</div>
+              <StyledPosition>{position}</StyledPosition>
           </div>
         )}
       </Draggable>

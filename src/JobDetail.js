@@ -19,7 +19,7 @@ const StyledModalContent = styled.div`
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  width: 500px;
+  width: 600px;
   margin: 30px auto;
   background-color: #fefefe;
   border: 1px solid #888;
@@ -34,8 +34,8 @@ const StyledX = styled.div`
 `;
 
 const Col = styled.div`
+  max-width: 50%;
   flex: 1 50%;
-  height: 0%;
 `;
 
 const BotCol = styled.div`
@@ -43,6 +43,7 @@ const BotCol = styled.div`
 `;
 
 const Row = styled.div`
+  box-sizing: border-box;
   width: 100%;
   display: flex;
   text-align: start;
@@ -51,10 +52,24 @@ const Row = styled.div`
 
 const Title = styled.div`
   width: 40%;
+  font-size: 0.9rem;
 `;
 
 const Content = styled.div`
   width: 60%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  :hover {
+    overflow: unset;
+    text-overflow: unset;
+  }
+`;
+
+const DescriptionBox = styled.div`
+  overflow: auto;
+  height: 350px;
 `;
 
 function JobDetail(props) {
@@ -78,17 +93,18 @@ function JobDetail(props) {
     <StyledModal>
       <StyledModalContent>
         <Col>
+          <Row><b>General Info</b></Row>
           <Row>
             <Title>Company:</Title>
             <Content>{company}</Content>
           </Row>
           <Row>
-          <Title>Position:</Title>
-          <Content>{position}</Content>
+            <Title>Position:</Title>
+            <Content>{position}</Content>
           </Row>
           <Row>
             <Title>Post Url:</Title>
-            <Content>{url}</Content>
+            <Content><a href={url}>{url}</a></Content>
           </Row>
           <Row>
             <Title>Location:</Title>
@@ -96,6 +112,7 @@ function JobDetail(props) {
           </Row>
         </Col>
         <Col>
+          <Row><b>Dates</b></Row>
           <Row>
             <Title>Applied:</Title>
             <Content>{appliedAt}</Content>
@@ -122,8 +139,8 @@ function JobDetail(props) {
           </Row>
         </Col>
         <BotCol>
-          <Row>Description:</Row>
-          <Row>{description}</Row>
+          <Row><b>Description:</b></Row>
+          <Row><DescriptionBox>{description}</DescriptionBox></Row>
         </BotCol>
         <StyledX onClick={handleClick}> x </StyledX>
       </StyledModalContent>

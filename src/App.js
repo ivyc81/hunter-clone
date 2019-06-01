@@ -7,6 +7,16 @@ import apiHelper from './api';
 import Column from './Column';
 import NewJobForm from './NewJobForm';
 
+const StyledApp = styled.div`
+  padding: 32px;
+  text-align: center;
+  display: flex;
+
+  * {
+    box-sizing: border-box;
+  }
+`;
+
 // a little function to help us with reordering the result
 const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
@@ -80,6 +90,9 @@ class App extends Component {
 
     for(let key in this.state){
       state[key] = await apiHelper.getResource(`${key}`);
+      let date = `${key}At`;
+      console.log(date);
+      state[key].sort((a, b) => new Date(b[date]) - new Date(a[date]));
     }
 
     this.setState(state)
@@ -162,11 +175,11 @@ class App extends Component {
     const columns = this.createColumns();
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
-        <div className='App'>
+        <StyledApp>
           <NewJobForm triggerAddJob={this.addItem}/>
           {columns}
-        </div>
-      </DragDropContext>
+      </StyledApp>
+    </DragDropContext>
     );
   }
 }
