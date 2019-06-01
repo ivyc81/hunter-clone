@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import JobDetail from './JobDetail';
-import { whileStatement } from '@babel/types';
 
 const grid = 8;
 
@@ -27,6 +26,12 @@ const StyledX = styled.div`
   position: absolute;
   top: 2px;
   right: 8px;
+`;
+
+const StyledTitle = styled.div`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const StyledPosition = styled.div`
@@ -99,7 +104,7 @@ function Card(props) {
             color
             )}>
               <StyledX id={id}> x </StyledX>
-              <div>{company}</div>
+              <StyledTitle>{company}</StyledTitle>
               <StyledPosition>{position}</StyledPosition>
           </div>
         )}
