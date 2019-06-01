@@ -12,7 +12,10 @@
   ],
   "applied": [],
   "codeChallenge": [],
-  "phoneScreen": [
+  "phoneScreen": [],
+  "onSite": [],
+  "offer": [],
+  "rejected": [
     {
       "company": "google",
       "position": "boba",
@@ -21,10 +24,10 @@
       "location": "",
       "id": "b1ef2c96-2498-47eb-aac1-9a2431e67cfc",
       "color": "rgb(206, 219, 212)",
-      "phoneScreenAt": "Fri May 31 2019"
+      "phoneScreenAt": "Fri May 31 2019",
+      "codeChallengeAt": "Sat Jun 01 2019",
+      "appliedAt": "Sat Jun 01 2019",
+      "rejectedAt": "Sat Jun 01 2019"
     }
-  ],
-  "onSite": [],
-  "offer": [],
-  "rejected": []
+  ]
 }
