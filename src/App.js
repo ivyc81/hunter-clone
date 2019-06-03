@@ -91,7 +91,6 @@ class App extends Component {
     for(let key in this.state){
       state[key] = await apiHelper.getResource(`${key}`);
       let date = `${key}At`;
-      console.log(date);
       state[key].sort((a, b) => new Date(b[date]) - new Date(a[date]));
     }
 
