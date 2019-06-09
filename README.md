@@ -14,6 +14,7 @@ Uses concurrently so `npm start` starts both backend and frontend.
 * react-dom ^16.8.6
 * react-scripts 3.0.1
 * styled-components ^4.2.0
+* uuid ^3.3.2
 
 ## To run the app on local
 
@@ -28,3 +29,7 @@ Start app:
 ```
  npm start # Open browser to localhost:3000 and try the app out!
 ```
+
+## Todos
+Add edit UI
+Add user authentication
